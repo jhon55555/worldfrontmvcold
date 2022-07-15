@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F21548F4-23B1-4462-BE94-8DA41196C404}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DimFrontGroup\MarketAnalysisReport.cs" />
+    <Compile Include="DimFrontGroup\AB20.cs" />
+    <Compile Include="DimFrontGroup\AB20C.cs" />
+    <Compile Include="DimFrontGroup\AB3.cs" />
+    <Compile Include="DimFrontGroup\ABJ.cs" />
+    <Compile Include="DimFrontGroup\AccDabaBet.cs" />
+    <Compile Include="DimFrontGroup\AccountStatement.cs" />
+    <Compile Include="DimFrontGroup\AccStatePopup.cs" />
+    <Compile Include="DimFrontGroup\AuthTemp.cs" />
+    <Compile Include="DimFrontGroup\AutoconUpdate.cs" />
+    <Compile Include="DimFrontGroup\BannerData.cs" />
+    <Compile Include="DimFrontGroup\BannerDataRes.cs" />
+    <Compile Include="DimFrontGroup\ButtonUpdate.cs" />
+    <Compile Include="DimFrontGroup\Casino.cs" />
+    <Compile Include="DimFrontGroup\Casinolist.cs" />
+    <Compile Include="DimFrontGroup\CasinolistRe.cs" />
+    <Compile Include="DimFrontGroup\CasinolistRes.cs" />
+    <Compile Include="DimFrontGroup\CasinoLogin.cs" />
+    <Compile Include="DimFrontGroup\Casinores.cs" />
+    <Compile Include="DimFrontGroup\CasinoRules.cs" />
+    <Compile Include="DimFrontGroup\CasinoTables.cs" />
+    <Compile Include="DimFrontGroup\CasinoTabs.cs" />
+    <Compile Include="DimFrontGroup\CasinoUserBook.cs" />
+    <Compile Include="DimFrontGroup\Categorylist.cs" />
+    <Compile Include="DimFrontGroup\CFLogin.cs" />
+    <Compile Include="DimFrontGroup\ChangePass.cs" />
+    <Compile Include="DimFrontGroup\Chkip.cs" />
+    <Compile Include="DimFrontGroup\CMatch20.cs" />
+    <Compile Include="DimFrontGroup\Cmatch20C.cs" />
+    <Compile Include="DimFrontGroup\Couponlist.cs" />
+    <Compile Include="DimFrontGroup\Createreq.cs" />
+    <Compile Include="DimFrontGroup\Cricketv3popup.cs" />
+    <Compile Include="DimFrontGroup\DeleteBetReport.cs" />
+    <Compile Include="DimFrontGroup\DT6.cs" />
+    <Compile Include="DimFrontGroup\ESLogin.cs" />
+    <Compile Include="DimFrontGroup\EZLogin.cs" />
+    <Compile Include="DimFrontGroup\EZReport.cs" />
+    <Compile Include="DimFrontGroup\FancyBook.cs" />
+    <Compile Include="DimFrontGroup\Fancypopup.cs" />
+    <Compile Include="DimFrontGroup\Framelogin.cs" />
+    <Compile Include="DimFrontGroup\GameData.cs" />
+    <Compile Include="DimFrontGroup\GameDataRes.cs" />
+    <Compile Include="DimFrontGroup\GameDataw.cs" />
+    <Compile Include="DimFrontGroup\GameDetail.cs" />
+    <Compile Include="DimFrontGroup\GameDetailRes.cs" />
+    <Compile Include="DimFrontGroup\GameMaster.cs" />
+    <Compile Include="DimFrontGroup\GameMasterw.cs" />
+    <Compile Include="DimFrontGroup\Gamenewid.cs" />
+    <Compile Include="DimFrontGroup\GameSer.cs" />
+    <Compile Include="DimFrontGroup\GetCricketv3data.cs" />
+    <Compile Include="DimFrontGroup\GetCricketvdata.cs" />
+    <Compile Include="DimFrontGroup\GetCricketvdataRes.cs" />
+    <Compile Include="DimFrontGroup\GetM.cs" />
+    <Compile Include="DimFrontGroup\GetMre.cs" />
+    <Compile Include="DimFrontGroup\GetRules.cs" />
+    <Compile Include="DimFrontGroup\GetSportteam.cs" />
+    <Compile Include="DimFrontGroup\GetSportteamres.cs" />
+    <Compile Include="DimFrontGroup\GetTeenOdds.cs" />
+    <Compile Include="DimFrontGroup\GlobalValErr.cs" />
+    <Compile Include="DimFrontGroup\HighlightData.cs" />
+    <Compile Include="DimFrontGroup\HighlightData11.cs" />
+    <Compile Include="DimFrontGroup\HighlightDataRes.cs" />
+    <Compile Include="DimFrontGroup\Highlightnew.cs" />
+    <Compile Include="DimFrontGroup\History.cs" />
+    <Compile Include="DimFrontGroup\IPObj.cs" />
+    <Compile Include="DimFrontGroup\IPResponse.cs" />
+    <Compile Include="DimFrontGroup\Kbc.cs" />
+    <Compile Include="DimFrontGroup\Last10Res.cs" />
+    <Compile Include="DimFrontGroup\Last10ResC.cs" />
+    <Compile Include="DimFrontGroup\Last10Result.cs" />
+    <Compile Include="DimFrontGroup\Last10ResultCC.cs" />
+    <Compile Include="DimFrontGroup\Login.cs" />
+    <Compile Include="DimFrontGroup\Loginpoptheball.cs" />
+    <Compile Include="DimFrontGroup\Lottcard.cs" />
+    <Compile Include="DimFrontGroup\Maintenance.cs" />
+    <Compile Include="DimFrontGroup\Matchdtlbet.cs" />
+    <Compile Include="DimFrontGroup\NoteNum.cs" />
+    <Compile Include="DimFrontGroup\OtherCasino.cs" />
+    <Compile Include="DimFrontGroup\Patti2.cs" />
+    <Compile Include="DimFrontGroup\PaymentUrl.cs" />
+    <Compile Include="DimFrontGroup\Paymentval.cs" />
+    <Compile Include="DimFrontGroup\Paymentwith.cs" />
+    <Compile Include="DimFrontGroup\PlacebetDconGK.cs" />
+    <Compile Include="DimFrontGroup\Poker.cs" />
+    <Compile Include="DimFrontGroup\Poker20.cs" />
+    <Compile Include="DimFrontGroup\PTBResp.cs" />
+    <Compile Include="DimFrontGroup\QTLogin.cs" />
+    <Compile Include="DimFrontGroup\QTLoginResp.cs" />
+    <Compile Include="DimFrontGroup\QTReport.cs" />
+    <Compile Include="DimFrontGroup\Race17.cs" />
+    <Compile Include="DimFrontGroup\RefreshToken.cs" />
+    <Compile Include="DimFrontGroup\RLoginResp.cs" />
+    <Compile Include="DimFrontGroup\RNReport.cs" />
+    <Compile Include="DimFrontGroup\RunnerViewmore.cs" />
+    <Compile Include="DimFrontGroup\SSLogin.cs" />
+    <Compile Include="DimFrontGroup\SSReport.cs" />
+    <Compile Include="DimFrontGroup\SSResp.cs" />
+    <Compile Include="DimFrontGroup\Startres.cs" />
+    <Compile Include="DimFrontGroup\Teen.cs" />
+    <Compile Include="DimFrontGroup\Teen20.cs" />
+    <Compile Include="DimFrontGroup\Teen2024.cs" />
+    <Compile Include="DimFrontGroup\Teen3.cs" />
+    <Compile Include="DimFrontGroup\Teen6.cs" />
+    <Compile Include="DimFrontGroup\TeenC.cs" />
+    <Compile Include="DimFrontGroup\TeleMe.cs" />
+    <Compile Include="DimFrontGroup\TeleResp.cs" />
+    <Compile Include="DimFrontGroup\TGSLogin.cs" />
+    <Compile Include="DimFrontGroup\TPAllReport.cs" />
+    <Compile Include="DimFrontGroup\TPCSUserMaster.cs" />
+    <Compile Include="DimFrontGroup\TPReport.cs" />
+    <Compile Include="DimFrontGroup\TreeviewData.cs" />
+    <Compile Include="DimFrontGroup\TreeviewDataRes.cs" />
+    <Compile Include="DimFrontGroup\TreeViewRe.cs" />
+    <Compile Include="DimFrontGroup\Tvata.cs" />
+    <Compile Include="DimFrontGroup\TvCsData.cs" />
+    <Compile Include="DimFrontGroup\TVUrl.cs" />
+    <Compile Include="DimFrontGroup\UserBook.cs" />
+    <Compile Include="DimFrontGroup\Usercreate.cs" />
+    <Compile Include="DimFrontGroup\UserentryRes.cs" />
+    <Compile Include="DimFrontGroup\Userexist.cs" />
+    <Compile Include="DimFrontGroup\UserLogin.cs" />
+    <Compile Include="DimFrontGroup\VGSLogin.cs" />
+    <Compile Include="DimFrontGroup\VLucky7.cs" />
+    <Compile Include="DimFrontGroup\VNoteNum.cs" />
+    <Compile Include="DimFrontGroup\VPatti.cs" />
+    <Compile Include="DimFrontGroup\VPoker.cs" />
+    <Compile Include="DimFrontGroup\VRace17.cs" />
+    <Compile Include="DimFrontGroup\VTeen.cs" />
+    <Compile Include="DimFrontGroup\VTeen20.cs" />
+    <Compile Include="DimFrontGroup\VTeen2024.cs" />
+    <Compile Include="DimFrontGroup\VTeen6.cs" />
+    <Compile Include="DimFrontGroup\Worli.cs" />
+    <Compile Include="DimFrontGroup\WorliPana.cs" />
+    <Compile Include="DimFrontGroup\WorliRule.cs" />
+    <Compile Include="DimFront\Couponlist.cs" />
+    <Compile Include="DimFront\TPTest.cs" />
+    <Compile Include="DimFront\PlacebetDconGK.cs" />
+    <Compile Include="DimFront\AB3.cs" />
+    <Compile Include="DimFront\CasinoLogin.cs" />
+    <Compile Include="DimFront\Paymentwith.cs" />
+    <Compile Include="DimFront\Loginpoptheball.cs" />
+    <Compile Include="DimFront\PaymentUrl.cs" />
+    <Compile Include="DimFront\AstarLogin.cs" />
+    <Compile Include="DimFront\LoginTP.cs" />
+    <Compile Include="DimFront\SSGLogin.cs" />
+    <Compile Include="DimFront\Teen3.cs" />
+    <Compile Include="DimFront\VGSLogin.cs" />
+    <Compile Include="DimFront\VTeen2024.cs" />
+    <Compile Include="DimFront\VNoteNum.cs" />
+    <Compile Include="DimFront\VPatti.cs" />
+    <Compile Include="DimFront\VTeen6.cs" />
+    <Compile Include="DimFront\Userexist.cs" />
+    <Compile Include="DimFront\VPoker.cs" />
+    <Compile Include="DimFront\VRace17.cs" />
+    <Compile Include="DimFront\VLucky7.cs" />
+    <Compile Include="DimFront\Kbc.cs" />
+    <Compile Include="DimFront\VTeen20.cs" />
+    <Compile Include="DimFront\VTeen.cs" />
+    <Compile Include="DimFront\Teen2024.cs" />
+    <Compile Include="DimFront\GetRules.cs" />
+    <Compile Include="DimFront\GetSportteam.cs" />
+    <Compile Include="DimFront\ESLogin.cs" />
+    <Compile Include="DimFront\Fancypopup.cs" />
+    <Compile Include="DimFront\Patti2.cs" />
+    <Compile Include="DimFront\Categorylist.cs" />
+    <Compile Include="DimFront\NoteNum.cs" />
+    <Compile Include="DimFront\TeleMe.cs" />
+    <Compile Include="DimFront\AB20.cs" />
+    <Compile Include="DimFront\AB20C.cs" />
+    <Compile Include="DimFront\ABJ.cs" />
+    <Compile Include="DimFront\AccDabaBet.cs" />
+    <Compile Include="DimFront\AccountStatement.cs" />
+    <Compile Include="DimFront\AccStatePopup.cs" />
+    <Compile Include="DimFront\AuthTemp.cs" />
+    <Compile Include="DimFront\AutoconUpdate.cs" />
+    <Compile Include="DimFront\BannerData.cs" />
+    <Compile Include="DimFront\BannerDataRes.cs" />
+    <Compile Include="DimFront\ButtonUpdate.cs" />
+    <Compile Include="DimFront\Casino.cs" />
+    <Compile Include="DimFront\Casinolist.cs" />
+    <Compile Include="DimFront\CasinolistRe.cs" />
+    <Compile Include="DimFront\CasinolistRes.cs" />
+    <Compile Include="DimFront\RunnerViewmore.cs" />
+    <Compile Include="DimFront\Casinores.cs" />
+    <Compile Include="DimFront\CasinoRules.cs" />
+    <Compile Include="DimFront\CasinoTables.cs" />
+    <Compile Include="DimFront\CasinoTabs.cs" />
+    <Compile Include="DimFront\CasinoUserBook.cs" />
+    <Compile Include="DimFront\CFLogin.cs" />
+    <Compile Include="DimFront\ChangePass.cs" />
+    <Compile Include="DimFront\Chkip.cs" />
+    <Compile Include="DimFront\CMatch20.cs" />
+    <Compile Include="DimFront\Cmatch20C.cs" />
+    <Compile Include="DimFront\Createreq.cs" />
+    <Compile Include="DimFront\Cricketv3popup.cs" />
+    <Compile Include="DimFront\DT6.cs" />
+    <Compile Include="DimFront\EZLogin.cs" />
+    <Compile Include="DimFront\EZReport.cs" />
+    <Compile Include="DimFront\FancyBook.cs" />
+    <Compile Include="DimFront\Framelogin.cs" />
+    <Compile Include="DimFront\GameData.cs" />
+    <Compile Include="DimFront\GameDataRes.cs" />
+    <Compile Include="DimFront\GameDataw.cs" />
+    <Compile Include="DimFront\GameDetail.cs" />
+    <Compile Include="DimFront\GameDetailRes.cs" />
+    <Compile Include="DimFront\GameMaster.cs" />
+    <Compile Include="DimFront\GameMasterw.cs" />
+    <Compile Include="DimFront\Gamenewid.cs" />
+    <Compile Include="DimFront\GameSer.cs" />
+    <Compile Include="DimFront\GetCricketv3data.cs" />
+    <Compile Include="DimFront\GetCricketvdata.cs" />
+    <Compile Include="DimFront\GetCricketvdataRes.cs" />
+    <Compile Include="DimFront\GetM.cs" />
+    <Compile Include="DimFront\GetMre.cs" />
+    <Compile Include="DimFront\GetSportteamres.cs" />
+    <Compile Include="DimFront\GetTeenOdds.cs" />
+    <Compile Include="DimFront\GlobalValErr.cs" />
+    <Compile Include="DimFront\HighlightData.cs" />
+    <Compile Include="DimFront\HighlightData11.cs" />
+    <Compile Include="DimFront\HighlightDataRes.cs" />
+    <Compile Include="DimFront\Highlightnew.cs" />
+    <Compile Include="DimFront\History.cs" />
+    <Compile Include="DimFront\IPObj.cs" />
+    <Compile Include="DimFront\IPResponse.cs" />
+    <Compile Include="DimFront\Last10Res.cs" />
+    <Compile Include="DimFront\Last10ResC.cs" />
+    <Compile Include="DimFront\Last10Result.cs" />
+    <Compile Include="DimFront\Last10ResultCC.cs" />
+    <Compile Include="DimFront\Login.cs" />
+    <Compile Include="DimFront\Lottcard.cs" />
+    <Compile Include="DimFront\Maintenance.cs" />
+    <Compile Include="DimFront\Matchdtlbet.cs" />
+    <Compile Include="DimFront\OtherCasino.cs" />
+    <Compile Include="DimFront\Paymentval.cs" />
+    <Compile Include="DimFront\Poker.cs" />
+    <Compile Include="DimFront\Poker20.cs" />
+    <Compile Include="DimFront\PTBResp.cs" />
+    <Compile Include="DimFront\QTLogin.cs" />
+    <Compile Include="DimFront\QTLoginResp.cs" />
+    <Compile Include="DimFront\QTReport.cs" />
+    <Compile Include="DimFront\RefreshToken.cs" />
+    <Compile Include="DimFront\RLoginResp.cs" />
+    <Compile Include="DimFront\RNReport.cs" />
+    <Compile Include="DimFront\SSLogin.cs" />
+    <Compile Include="DimFront\SSReport.cs" />
+    <Compile Include="DimFront\SSResp.cs" />
+    <Compile Include="DimFront\Startres.cs" />
+    <Compile Include="DimFront\Teen.cs" />
+    <Compile Include="DimFront\Teen20.cs" />
+    <Compile Include="DimFront\Teen6.cs" />
+    <Compile Include="DimFront\TeenC.cs" />
+    <Compile Include="DimFront\TeleResp.cs" />
+    <Compile Include="DimFront\DeleteBetReport.cs" />
+    <Compile Include="DimFront\TGSLogin.cs" />
+    <Compile Include="DimFront\TPAllReport.cs" />
+    <Compile Include="DimFront\TPCSUserMaster.cs" />
+    <Compile Include="DimFront\TPReport.cs" />
+    <Compile Include="DimFront\TreeviewData.cs" />
+    <Compile Include="DimFront\TreeviewDataRes.cs" />
+    <Compile Include="DimFront\TreeViewRe.cs" />
+    <Compile Include="DimFront\Race17.cs" />
+    <Compile Include="DimFront\Tvata.cs" />
+    <Compile Include="DimFront\TvCsData.cs" />
+    <Compile Include="DimFront\TVUrl.cs" />
+    <Compile Include="DimFront\UserBook.cs" />
+    <Compile Include="DimFront\Usercreate.cs" />
+    <Compile Include="DimFront\UserentryRes.cs" />
+    <Compile Include="DimFront\UserLogin.cs" />
+    <Compile Include="DimFront\Worli.cs" />
+    <Compile Include="DimFront\WorliPana.cs" />
+    <Compile Include="DimFront\WorliRule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

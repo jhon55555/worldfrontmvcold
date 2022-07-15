@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4154761C-D5D4-454F-9DFB-BA6300DA5EDA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Npgsql.4.0.5\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis">
+      <HintPath>..\..\packages\StackExchange.Redis.1.2.6\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheManager\IRedis1.cs" />
+    <Compile Include="CacheManager\Redis1.cs" />
+    <Compile Include="CacheManager\RedisCon.cs" />
+    <Compile Include="DataPgGroup\INpgadminGroupService.cs" />
+    <Compile Include="DataPgGroup\NpgadminGroupService.cs" />
+    <Compile Include="DataPg\INpgadminService.cs" />
+    <Compile Include="DataPg\NpgadminService.cs" />
+    <Compile Include="DimFrontGroup\DimFrontGroupService.cs" />
+    <Compile Include="DimFrontGroup\IDimFrontGroupService.cs" />
+    <Compile Include="DimFrontOpenserGroup\DimFrontOPenGroupService.cs" />
+    <Compile Include="DimFrontOpenserGroup\IDimFrontOPenGroupService.cs" />
+    <Compile Include="DimFrontOpenser\DimFrontService.cs" />
+    <Compile Include="DimFrontOpenser\IDimFrontService.cs" />
+    <Compile Include="DimFront\DimFrontService.cs" />
+    <Compile Include="DimFront\IDimFrontService.cs" />
+    <Compile Include="RedisManagerOpen\IRedis.cs" />
+    <Compile Include="RedisManagerOpen\Redis.cs" />
+    <Compile Include="RedisManagerOpen\RedisCon.cs" />
+    <Compile Include="RedisManager\Extensions.cs" />
+    <Compile Include="RedisManager\IRedisManagerTrader.cs" />
+    <Compile Include="RedisManager\IRedisManager.cs" />
+    <Compile Include="RedisManager\IRedisManagerOther.cs" />
+    <Compile Include="RedisManager\IRedisManagerTenni.cs" />
+    <Compile Include="RedisManager\IRedisManagerFoot.cs" />
+    <Compile Include="RedisManager\IRedisManagerCric.cs" />
+    <Compile Include="RedisManager\IRedisManager2.cs" />
+    <Compile Include="RedisManager\IRedisManager1.cs" />
+    <Compile Include="RedisManager\RedisConnectionTrader.cs" />
+    <Compile Include="RedisManager\RedisConnectionOther.cs" />
+    <Compile Include="RedisManager\RedisConnectionTenni.cs" />
+    <Compile Include="RedisManager\RedisConnectionFoot.cs" />
+    <Compile Include="RedisManager\RedisConnectionCric.cs" />
+    <Compile Include="RedisManager\RedisConnection2.cs" />
+    <Compile Include="RedisManager\RedisConnection1.cs" />
+    <Compile Include="RedisManager\RedisManagerTrader.cs" />
+    <Compile Include="RedisManager\RedisManager.cs" />
+    <Compile Include="RedisManager\RedisConnection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedisManager\RedisManagerOther.cs" />
+    <Compile Include="RedisManager\RedisManagerTenni.cs" />
+    <Compile Include="RedisManager\RedisManagerFoot.cs" />
+    <Compile Include="RedisManager\RedisManagerCric.cs" />
+    <Compile Include="RedisManager\RedisManager2.cs" />
+    <Compile Include="RedisManager\RedisManager1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{80ed40f1-2c0f-49f6-ab69-2c41367c6b9d}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{016fdc0d-b31a-4aff-bf97-0c5902abe4f0}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{f21548f4-23b1-4462-be94-8da41196c404}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
