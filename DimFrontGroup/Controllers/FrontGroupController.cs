@@ -5783,7 +5783,29 @@ namespace DimFrontGroup.Controllers
                                                 }).ToList(),
                                                 //)
                                             }).OrderBy(sd => sd.cname).ToList();
-                                            
+                                            //var query1 = t2.GroupBy(r1 => new
+                                            //{
+                                            //    r1.cid,
+                                            //    r1.cname,
+                                            //}, (key1, group1) => new
+                                            //{
+                                            //    cid = key1.cid,
+                                            //    cname = key1.cname,
+                                            //    children = group1.Count() == 0 ? null :/*group1.Select(_ => _.cid == "" ? null :*/ group1.GroupBy(r2 => new
+                                            //    {
+                                            //        r2.ename,
+                                            //    }, (key2, group2) => key2.ename.ToString() == "" ? null : new
+                                            //    {
+                                            //        ename = key2.ename,
+                                            //        children = group2.Select(y => new
+                                            //        {
+                                            //            gmid = y.gmid,
+                                            //            iplay = y.iplay,
+                                            //            stime = y.stime,
+                                            //        }).OrderBy(i => Convert.ToDateTime(i.stime)).ToList(),
+                                            //    }).ToList(),
+                                            //    //)
+                                            //}).ToList();
                                             if (query.Count() == 0)
                                                 return Return300("No record found.");
                                             return Return200("Success", new { t1 = query });
