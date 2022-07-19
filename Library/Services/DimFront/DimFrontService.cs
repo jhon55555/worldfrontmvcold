@@ -2706,7 +2706,8 @@ namespace Services.DimFront
                     var parameters1 = new List<SqlParameter>();
                     parameters1.Add(new SqlParameter() { ParameterName = "guid", Value = ltp.guid });
                     parameters1.Add(new SqlParameter() { ParameterName = "cmid", Value = ltp.cid });
-                    parameters1.Add(new SqlParameter() { ParameterName = "gameid", Value = ltp.tid });
+                    parameters1.Add(new SqlParameter() { ParameterName = "gameid", Value = ltp.tid }); 
+                    parameters1.Add(new SqlParameter() { ParameterName = "istest", Value = ltp.istest });
                     parameters1.Add(new SqlParameter() { ParameterName = "statement", Value = "gamelogin" });
                     ds1 = _sqlClientService.Execute("casino_master", ConfigItems.Conn_CasinoTP, parameters1);
                     if (ds1.Tables.Count > 0 && ds1.Tables[0].Rows.Count > 0)// && ds1.Tables[0].Rows[0]["id"].ToString() == "1"
