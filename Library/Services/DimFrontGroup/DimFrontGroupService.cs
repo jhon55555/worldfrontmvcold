@@ -1749,7 +1749,7 @@ namespace Services.DimFrontGroup
                 parameters.Add(new SqlParameter() { ParameterName = "gametype", Value = casinoRules.gtype });
                 parameters.Add(new SqlParameter() { ParameterName = "Statement", Value = "CasinoRules" });
                 DataSet ds = _sqlClientService.Execute("getreportdata", ConfigItems.Conn_Casinogroup, parameters);
-                //_errorLogService.WriteLog("CasinoRules+getreportdata", JsonConvert.SerializeObject(casinoRules) + "Res:" + JsonConvert.SerializeObject(ds));
+                //WriteLogAll("CasinoRules+getreportdata", JsonConvert.SerializeObject(casinoRules) + "Res:" + JsonConvert.SerializeObject(ds));
                 return ds;
 
             }
