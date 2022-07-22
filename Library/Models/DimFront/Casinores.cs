@@ -16,5 +16,6 @@ namespace Models.DimFront
     {
         [Required(ErrorMessage = "gametype is empty.")]
         public String gtype { get; set; }
+        public Int16 istest { get; set; }
     }
 }

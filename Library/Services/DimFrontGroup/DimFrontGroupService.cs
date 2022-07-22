@@ -1629,6 +1629,7 @@ namespace Services.DimFrontGroup
             try
             {
                 var parameters = new List<SqlParameter>();
+                parameters.Add(new SqlParameter() { ParameterName = "istest", Value = checkCasinovs.istest });
                 parameters.Add(new SqlParameter() { ParameterName = "Gameid", Value = checkCasinovs.gtype });
                 parameters.Add(new SqlParameter() { ParameterName = "statement", Value = "IsCasinohide" });
                 return _sqlClientService.Execute("sp_casinodata", ConfigItems.Conn_CasinoTP, parameters);
