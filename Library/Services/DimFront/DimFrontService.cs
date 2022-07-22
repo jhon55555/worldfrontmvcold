@@ -836,7 +836,7 @@ namespace Services.DimFront
                     //_errorLogService.WriteLog("CasinoUserBook+lottery_userbook", JsonConvert.SerializeObject(casinoUserBook) + "Res:" + JsonConvert.SerializeObject(ds));
                     return ds;
                 }
-                if (casinoUserBook.gtype == "race20")
+                if (casinoUserBook.gtype == "race20" || casinoUserBook.gtype == "race2")
                 {
                     var parameters = new List<SqlParameter>();
                     parameters.Add(new SqlParameter() { ParameterName = "Userid", Value = casinoUserBook.uid });

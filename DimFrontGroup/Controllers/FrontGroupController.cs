@@ -8865,7 +8865,7 @@ namespace DimFrontGroup.Controllers
                         var obj = JsonConvert.DeserializeObject<Poker20>(resp);
                         return obj;
                     }
-                    if (getTeenOdds.gtype.ToLower() == "poker" || getTeenOdds.gtype.ToLower() == "poker6" || getTeenOdds.gtype.ToLower() == "cmeter" || getTeenOdds.gtype.ToLower() == "queen" || getTeenOdds.gtype.ToLower() == "race20")
+                    if (getTeenOdds.gtype.ToLower() == "poker" || getTeenOdds.gtype.ToLower() == "poker6" || getTeenOdds.gtype.ToLower() == "cmeter" || getTeenOdds.gtype.ToLower() == "queen" || getTeenOdds.gtype.ToLower() == "race20" || getTeenOdds.gtype.ToLower() == "race2")
                     {
                         var obj = JsonConvert.DeserializeObject<Poker>(resp);
                         return obj;
