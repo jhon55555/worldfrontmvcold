@@ -12075,7 +12075,7 @@ namespace DimFrontGroup.Controllers
                     }).ToList();
                     return Return200("success", t1);
                 }
-                else if (tPReport.ctype.ToLower() == "tgs" || tPReport.ctype.ToLower() == "slot" || tPReport.ctype.ToLower() == "tgslive" || tPReport.ctype.ToLower() == "vivo" || tPAllReport.ctype.ToLower() == "astar" || tPAllReport.ctype.ToLower() == "smart")
+                else if (tPReport.ctype.ToLower() == "tgs" || tPReport.ctype.ToLower() == "slot" || tPReport.ctype.ToLower() == "tgslive" || tPReport.ctype.ToLower() == "vivo" || tPReport.ctype.ToLower() == "astar" || tPReport.ctype.ToLower() == "smart")
                 {
                     var t1 = Response.Tables[0].Rows.Count <= 0 ? null : Response.Tables[0].AsEnumerable().Select(x => new
                     {//[roundid],[gamename],[txntype],[txnid],[amount],[entdt] 
@@ -16189,7 +16189,7 @@ namespace DimFrontGroup.Controllers
                     };
                     return Return200("Success", t1);
                 }
-                var Response = _dimfrontservice.LoginTP(ltp);
+                var Response = _DimFrontGroupservice.LoginTP(ltp);
 
                 if (Response != null && Response.Tables.Count > 0 && Response.Tables[Response.Tables.Count - 1].Columns.Contains("id") &&
                     Response.Tables[Response.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
@@ -16205,7 +16205,7 @@ namespace DimFrontGroup.Controllers
                 if (Response.Tables[1].Columns.Contains("id") && Response.Tables[1].Rows[0]["id"].ToString() == "0" &&
                     Response.Tables[1].Rows[0]["ulock"].ToString() == "0")
                 {
-                    var Response1 = _dimfrontservice.GetTPCSUserData(uid, Response.Tables[1].Rows[0]["casinocode"].ToString(), "GetUserData");
+                    var Response1 = _DimFrontGroupservice.GetTPCSUserData(uid, Response.Tables[1].Rows[0]["casinocode"].ToString(), "GetUserData");
                     if (Response1 != null && Response1.Tables.Count > 0 && Response1.Tables[Response1.Tables.Count - 1].Columns.Contains("id") &&
                         Response1.Tables[Response1.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
                     {
@@ -16232,7 +16232,7 @@ namespace DimFrontGroup.Controllers
                     objtpcsum.pshiptype = Convert.ToInt64(Response1.Tables[0].Rows[0]["PartnershipType"]);
                     objtpcsum.cscode = Response.Tables[1].Rows[0]["casinocode1"].ToString().ToUpper();
 
-                    var Response2 = _dimfrontservice.GetTPCSUserMster(objtpcsum);
+                    var Response2 = _DimFrontGroupservice.GetTPCSUserMster(objtpcsum);
                     if (Response2 != null && Response2.Tables.Count > 0 && Response2.Tables[Response2.Tables.Count - 1].Columns.Contains("id") &&
                         Response2.Tables[Response2.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
                     {
@@ -16269,7 +16269,7 @@ namespace DimFrontGroup.Controllers
                     return Return300(Response.Tables[1].Rows[0]["MSG"].ToString());
                 }
 
-                var Response3 = _dimfrontservice.GetTPCSUserData(uid, Response.Tables[1].Rows[0]["casinocode"].ToString(), "ExistUserData");
+                var Response3 = _DimFrontGroupservice.GetTPCSUserData(uid, Response.Tables[1].Rows[0]["casinocode"].ToString(), "ExistUserData");
                 if (Response3 != null && Response3.Tables.Count > 0 && Response3.Tables[Response3.Tables.Count - 1].Columns.Contains("id") &&
                     Response3.Tables[Response3.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
                 {
