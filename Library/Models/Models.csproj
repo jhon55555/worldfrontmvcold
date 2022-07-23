@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DimFrontGroup\LoginTP.cs" />
     <Compile Include="DimFrontGroup\MarketAnalysisReport.cs" />
     <Compile Include="DimFrontGroup\AB20.cs" />
     <Compile Include="DimFrontGroup\AB20C.cs" />

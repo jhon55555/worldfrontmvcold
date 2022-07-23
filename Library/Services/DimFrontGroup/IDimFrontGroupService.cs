@@ -126,5 +126,6 @@ namespace Services.DimFrontGroup
         DataSet PaymenturlNew(Paymenturltoken userLogin);
         DataSet Paymentlst(Paymentlst userLogin);
         DataSet Paymentlstsub(Paymentlst userLogin);
+        DataSet LoginTP(LoginTP ltp);
     }
 }

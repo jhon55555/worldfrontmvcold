@@ -16105,6 +16105,208 @@ namespace DimFrontGroup.Controllers
                 return Return400(ex.Message);
             }
         }
+        [HttpPost]
+        [UserAuth, KeyFilter]
+        [Route("logintp")]
+        public HttpResponseMessage LoginTP([FromBody] LoginTP ltp)
+        {
+            try
+            {
+                ErrorLog.WriteLogAll("LoginTP", JsonConvert.SerializeObject(ltp));
+
+                string u_id = string.Empty;
+                var header = HttpContext.Current.Request.Headers["Authorization"];
+                if (header != null)
+                {
+                    u_id = JwtTokenGenerator.GetSaGuid(header);
+                }
+
+                Guid uu_id;
+                bool res = Guid.TryParse(u_id, out uu_id);
+
+                if (!res)
+                    return Return300("token not valid.");
+
+                ltp.guid = uu_id;
+                Int32 uid = Convert.ToInt32(JwtTokenGenerator.GetUid(header));
+
+                if (ltp.tid.ToLower() == "dream" || ltp.tid.ToLower() == "daba")
+                {
+                    UserLogin userLogin = new UserLogin();
+                    userLogin.gtype = ltp.tid;
+                    userLogin.guid = uu_id;
+                    var ResponseDD = _dimfrontservice.UserLogin(userLogin);
+                    if (ResponseDD != null && ResponseDD.Tables.Count > 0 && ResponseDD.Tables[ResponseDD.Tables.Count - 1].Columns.Contains("id") &&
+                        ResponseDD.Tables[ResponseDD.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
+                    {
+                        ErrorLog.WriteLog("UserLogin", JsonConvert.SerializeObject(userLogin),
+                            ResponseDD.Tables[ResponseDD.Tables.Count - 1].Rows[0]["MSG"].ToString());
+                        return Return400("Data Error");
+                    }
+
+                    if (ResponseDD == null || ResponseDD.Tables.Count <= 0)
+                        return Return300("No Data Found.");
+                    if (ResponseDD.Tables[0].Rows.Count <= 0)
+                        return Return300("No Record Found.");
+                    if (ResponseDD.Tables[0].Columns.Contains("id") && ResponseDD.Tables[0].Rows[0]["id"].ToString() == "0")
+                        return Return300(ResponseDD.Tables[0].Rows[0]["MSG"].ToString());
+
+
+                    var t1 = new
+                    {
+                        token = ResponseDD.Tables[0].Rows[0]["idval"],
+                        url = string.IsNullOrEmpty(ResponseDD.Tables[0].Rows[0]["url"].ToString()) ? "" : ResponseDD.Tables[0].Rows[0]["url"]
+                    };
+                    return Return200("Success", t1);
+                }
+                else if (ltp.gid == 2288 && ltp.tid.ToString() == "roulette")
+                {
+                    CasinoLogin cl = new CasinoLogin();
+                    cl.tid = ltp.gid.ToString();
+                    cl.gtype = ltp.tid;
+                    cl.device = ltp.device;
+                    cl.guid = uu_id;
+                    var ResponseLC = _dimfrontservice.LaunchCasino(cl);
+
+                    if (ResponseLC != null && ResponseLC.Tables.Count > 0 && ResponseLC.Tables[ResponseLC.Tables.Count - 1].Columns.Contains("id") &&
+                        ResponseLC.Tables[ResponseLC.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
+                    {
+                        ErrorLog.WriteLog("LaunchCasino", JsonConvert.SerializeObject(cl), ResponseLC.Tables[ResponseLC.Tables.Count - 1].Rows[0]["MSG"].ToString());
+                        return Return400("Data Error");
+                    }
+
+                    if (ResponseLC == null || ResponseLC.Tables.Count <= 0)
+                        return Return300("No Data Found.");
+                    if (ResponseLC.Tables[0].Rows.Count <= 0)
+                        return Return300("No Record Found.");
+                    if (ResponseLC.Tables[0].Columns.Contains("id") && ResponseLC.Tables[0].Rows[0]["id"].ToString() == "0")
+                        return Return300(ResponseLC.Tables[0].Rows[0]["MSG"].ToString());
+
+                    var t1 = new
+                    {
+                        url = ResponseLC.Tables[0].Rows[0]["url"] + ResponseLC.Tables[0].Rows[0]["idval"].ToString() + "&tidm=" + cl.tid + "&mode=" +
+                              cl.device.ToLower()
+                    };
+                    return Return200("Success", t1);
+                }
+                var Response = _dimfrontservice.LoginTP(ltp);
+
+                if (Response != null && Response.Tables.Count > 0 && Response.Tables[Response.Tables.Count - 1].Columns.Contains("id") &&
+                    Response.Tables[Response.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
+                {
+                    ErrorLog.WriteLog("LoginTP", JsonConvert.SerializeObject(ltp), Response.Tables[Response.Tables.Count - 1].Rows[0]["MSG"].ToString());
+                    return Return400("Data Error");
+                }
+
+                if (Response == null || Response.Tables.Count <= 0)
+                    return Return300("No Data Found.");
+                if (Response.Tables[0].Rows.Count <= 0)
+                    return Return300("No Record Found.");
+                if (Response.Tables[1].Columns.Contains("id") && Response.Tables[1].Rows[0]["id"].ToString() == "0" &&
+                    Response.Tables[1].Rows[0]["ulock"].ToString() == "0")
+                {
+                    var Response1 = _dimfrontservice.GetTPCSUserData(uid, Response.Tables[1].Rows[0]["casinocode"].ToString(), "GetUserData");
+                    if (Response1 != null && Response1.Tables.Count > 0 && Response1.Tables[Response1.Tables.Count - 1].Columns.Contains("id") &&
+                        Response1.Tables[Response1.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
+                    {
+                        ErrorLog.WriteLog("LoginTP1", JsonConvert.SerializeObject(ltp), Response1.Tables[Response1.Tables.Count - 1].Rows[0]["MSG"].ToString());
+                        return Return400("Data Error");
+                    }
+
+                    if (Response1 == null || Response1.Tables.Count <= 0)
+                        return Return300("No Data Found.");
+                    if (Response1.Tables[0].Rows.Count <= 0)
+                        return Return300("No Record Found.");
+                    if (Response1.Tables[0].Columns.Contains("id") && Response1.Tables[0].Rows[0]["id"].ToString() == "0")
+                        return Return300(Response1.Tables[0].Rows[0]["MSG"].ToString());
+
+                    TPCSUserMaster objtpcsum = new TPCSUserMaster();
+                    objtpcsum.uid = Convert.ToInt64(Response1.Tables[0].Rows[0]["userid"]);
+                    objtpcsum.guid = Response1.Tables[0].Rows[0]["uguid"].ToString();
+                    objtpcsum.uname = Response1.Tables[0].Rows[0]["userName"].ToString();
+                    objtpcsum.gen = Convert.ToDecimal(Response1.Tables[0].Rows[0]["general"]) - Convert.ToDecimal(Response1.Tables[0].Rows[0]["exposer"]);
+                    objtpcsum.curr = Response1.Tables[0].Rows[0]["Currency"].ToString();
+                    objtpcsum.webref = Response1.Tables[0].Rows[0]["WebRef"].ToString();
+                    objtpcsum.webdom = Response1.Tables[0].Rows[0]["webdomain"].ToString();
+                    objtpcsum.pship = Response1.Tables[0].Rows[0]["Partnership"].ToString();
+                    objtpcsum.pshiptype = Convert.ToInt64(Response1.Tables[0].Rows[0]["PartnershipType"]);
+                    objtpcsum.cscode = Response.Tables[1].Rows[0]["casinocode1"].ToString().ToUpper();
+
+                    var Response2 = _dimfrontservice.GetTPCSUserMster(objtpcsum);
+                    if (Response2 != null && Response2.Tables.Count > 0 && Response2.Tables[Response2.Tables.Count - 1].Columns.Contains("id") &&
+                        Response2.Tables[Response2.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
+                    {
+                        ErrorLog.WriteLog("LoginTP", JsonConvert.SerializeObject(ltp), Response2.Tables[Response2.Tables.Count - 1].Rows[0]["MSG"].ToString());
+                        return Return400("Data Error");
+                    }
+
+                    if (Response2.Tables.Count > 0 && Response2.Tables[0].Rows.Count > 0) // && ds1.Tables[0].Rows[0]["id"].ToString() == "1"
+                    {
+                        Response2.Tables[0].TableName = "CasinoData";
+                        Response.Tables.RemoveAt(1);
+                        Response.Tables.Add(Response2.Tables[0].Copy());
+                        Response1.Tables[1].TableName = "URLData";
+                        Response.Tables.Add(Response1.Tables[1].Copy());
+                    }
+
+                    var tpurl1 = new
+                    {
+                        tbl = Response,
+                        rurl = ltp.rurl,
+                        tkn = Response2.Tables[0].Rows[0]["token"].ToString(),
+                        dvc = ltp.device
+                    };
+                    var resptpurl1 = HttpHelper.Post(ConfigItems.CommonTPUrl, JsonConvert.SerializeObject(tpurl1), "application/json", "POST");
+                    var tpurlresp1 = JsonConvert.DeserializeObject<LoginTPResp>(resptpurl1);
+                    if (tpurlresp1.status == 200)
+                        return Return200("Success", new { url = tpurlresp1.data });
+                    else
+                        return Return300(tpurlresp1.msg);
+                }
+                else if (Response.Tables[1].Columns.Contains("id") && Response.Tables[1].Rows[0]["id"].ToString() == "0" &&
+                         Response.Tables[1].Rows[0]["ulock"].ToString() == "1")
+                {
+                    return Return300(Response.Tables[1].Rows[0]["MSG"].ToString());
+                }
+
+                var Response3 = _dimfrontservice.GetTPCSUserData(uid, Response.Tables[1].Rows[0]["casinocode"].ToString(), "ExistUserData");
+                if (Response3 != null && Response3.Tables.Count > 0 && Response3.Tables[Response3.Tables.Count - 1].Columns.Contains("id") &&
+                    Response3.Tables[Response3.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
+                {
+                    ErrorLog.WriteLog("LoginTP3", JsonConvert.SerializeObject(ltp), Response3.Tables[Response3.Tables.Count - 1].Rows[0]["MSG"].ToString());
+                    return Return400("Data Error");
+                }
+
+                if (Response3 == null || Response3.Tables.Count <= 0)
+                    return Return300("No Data Found.");
+                if (Response3.Tables[0].Rows.Count <= 0)
+                    return Return300("No Record Found.");
+                if (Response3.Tables[0].Columns.Contains("id") && Response3.Tables[0].Rows[0]["id"].ToString() == "0")
+                    return Return300(Response3.Tables[0].Rows[0]["MSG"].ToString());
+
+                Response3.Tables[1].TableName = "URLData";
+                Response.Tables.Add(Response3.Tables[1].Copy());
+
+                var tpurl = new
+                {
+                    tbl = Response,
+                    rurl = ltp.rurl,
+                    tkn = Response.Tables[1].Rows[0]["token"].ToString(),
+                    dvc = ltp.device
+                };
+                var resptpurl = HttpHelper.Post(ConfigItems.CommonTPUrl, JsonConvert.SerializeObject(tpurl), "application/json", "POST");
+                var tpurlresp = JsonConvert.DeserializeObject<LoginTPResp>(resptpurl);
+                if (tpurlresp.status == 200)
+                    return Return200("Success", new { url = tpurlresp.data });
+                else
+                    return Return300(tpurlresp.msg);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog("LoginTP : " + ex, " : Req" + JsonConvert.SerializeObject(ltp));
+                return Return400("Server Error");
+            }
+        }
         #endregion
     }
     public static class StringCompression
