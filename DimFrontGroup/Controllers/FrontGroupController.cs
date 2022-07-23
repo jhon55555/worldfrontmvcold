@@ -16135,7 +16135,7 @@ namespace DimFrontGroup.Controllers
                     UserLogin userLogin = new UserLogin();
                     userLogin.gtype = ltp.tid;
                     userLogin.guid = uu_id;
-                    var ResponseDD = _dimfrontservice.UserLogin(userLogin);
+                    var ResponseDD = _DimFrontGroupservice.UserLogin(userLogin);
                     if (ResponseDD != null && ResponseDD.Tables.Count > 0 && ResponseDD.Tables[ResponseDD.Tables.Count - 1].Columns.Contains("id") &&
                         ResponseDD.Tables[ResponseDD.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")
                     {
@@ -16166,7 +16166,7 @@ namespace DimFrontGroup.Controllers
                     cl.gtype = ltp.tid;
                     cl.device = ltp.device;
                     cl.guid = uu_id;
-                    var ResponseLC = _dimfrontservice.LaunchCasino(cl);
+                    var ResponseLC = _DimFrontGroupservice.LaunchCasino(cl);
 
                     if (ResponseLC != null && ResponseLC.Tables.Count > 0 && ResponseLC.Tables[ResponseLC.Tables.Count - 1].Columns.Contains("id") &&
                         ResponseLC.Tables[ResponseLC.Tables.Count - 1].Rows[0]["id"].ToString() == "-1")

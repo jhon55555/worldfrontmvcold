@@ -13,5 +13,6 @@ namespace Models.DimFrontGroup
         public String tid { get; set; }
         [Required(ErrorMessage = "gametype is empty.")]
         public String gtype { get; set; }
+        public String device { get; set; }
     }
 }
