@@ -12254,7 +12254,7 @@ namespace DimFront.Controllers
                     }).ToList();
                     return Return200("success", t1);
                 }
-                else if (tPReport.ctype.ToLower() == "tgs" || tPReport.ctype.ToLower() == "slot" || tPReport.ctype.ToLower() == "tgslive" || tPReport.ctype.ToLower() == "vivo")
+                else if (tPReport.ctype.ToLower() == "tgs" || tPReport.ctype.ToLower() == "slot" || tPReport.ctype.ToLower() == "tgslive" || tPReport.ctype.ToLower() == "vivo" || tPReport.ctype.ToLower() == "astar" || tPReport.ctype.ToLower() == "smart")
                 {
                     var t1 = Response.Tables[0].Rows.Count <= 0 ? null : Response.Tables[0].AsEnumerable().Select(x => new
                     {//[roundid],[gamename],[txntype],[txnid],[amount],[entdt] 
@@ -12431,7 +12431,7 @@ namespace DimFront.Controllers
                     }).ToList();
                     return Return200("success", t1);
                 }
-                else if (tPAllReport.ctype.ToLower() == "tgs" || tPAllReport.ctype.ToLower() == "slot" || tPAllReport.ctype.ToLower() == "tgslive" || tPAllReport.ctype.ToLower() == "vivo")
+                else if (tPAllReport.ctype.ToLower() == "tgs" || tPAllReport.ctype.ToLower() == "slot" || tPAllReport.ctype.ToLower() == "tgslive" || tPAllReport.ctype.ToLower() == "vivo" || tPAllReport.ctype.ToLower() == "astar" || tPAllReport.ctype.ToLower() == "smart")
                 {
                     var t1 = Response.Tables[0].Rows.Count <= 0 ? null : Response.Tables[0].AsEnumerable().Select(x => new
                     {//[roundid],[gamename],[txntype],[txnid],[amount],[entdt] 
